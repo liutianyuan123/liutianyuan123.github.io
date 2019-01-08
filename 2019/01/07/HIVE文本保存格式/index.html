@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108160002举例结果.png">
 <meta property="og:image" content="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108155339-parquet.png">
 <meta property="og:image" content="https://blog-1255797650.cos.ap-beijing.myqcloud.com/parquet.png">
-<meta property="og:updated_time" content="2019-01-08T08:00:16.748Z">
+<meta property="og:updated_time" content="2019-01-08T08:01:54.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="列存储格式数据模型及Parquet文件结构">
 <meta name="twitter:description" content="列存储格式数据模型1. 列式存储格式1 Schema每个schema的结构是这样的：根叫做message，message包含多个fields。每个field包含三个属性：repetition, type, name。repetition可以是以下三种：required（出现1次），optional（出现0次或者1次），repeated（出现0次或者多次）。type可以是一个group或者一个pri">
@@ -361,7 +361,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-08 08:00:16" itemprop="dateModified" datetime="2019-01-08T08:00:16Z">2019-01-08</time>
+                <time title="Modified: 2019-01-08 08:01:54" itemprop="dateModified" datetime="2019-01-08T08:01:54Z">2019-01-08</time>
               
             
           </span>
@@ -438,8 +438,8 @@
 <p>另一方面，Parquet文件对于每个page支持标准的压缩算法比如支持Snappy,gzip以及LZO压缩格式，也支持不压缩。</p>
 <p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/parquet.png" alt="parquet-page结构"></p>
 <p>在Parquet中，有三种类型的页：数据页、字典页和索引页。数据页用于存储当前行组中该列的值，字典页存储该列值的编码字典，每一个列块中最多包含一个字典页，索引页用来存储当前行组下该列的索引，目前Parquet中还不支持索引页，但是在后面的版本中增加。</p>
-<h3 id="映射下推"><a href="#映射下推" class="headerlink" title="映射下推"></a>映射下推</h3><p>说到列式存储的优势，映射下推是最突出的，它意味着在获取表中原始数据时只需要扫描查询中需要的列，由于每一列的所有值都是连续存储的，所以分区取出每一列的所有值就可以实现TableScan算子，而避免扫描整个表文件内容。<br>在Parquet中原生就支持映射下推，执行查询的时候可以通过Configuration传递需要读取的列的信息，这些列必须是Schema的子集，映射每次会扫描一个Row Group的数据，然后一次性得将该Row Group里所有需要的列的Cloumn Chunk都读取到内存中，每次读取一个Row Group的数据能够大大降低随机读的次数，除此之外，Parquet在读取的时候会考虑列是否连续，如果某些需要的列是存储位置是连续的，那么一次读操作就可以把多个列的数据读取到内存。</p>
-<h3 id="谓词下推"><a href="#谓词下推" class="headerlink" title="谓词下推"></a>谓词下推</h3><p>每个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。</p>
+<h3 id="2-1映射下推"><a href="#2-1映射下推" class="headerlink" title="2.1映射下推"></a>2.1映射下推</h3><p>说到列式存储的优势，映射下推是最突出的，它意味着在获取表中原始数据时只需要扫描查询中需要的列，由于每一列的所有值都是连续存储的，所以分区取出每一列的所有值就可以实现TableScan算子，而避免扫描整个表文件内容。<br>在Parquet中原生就支持映射下推，执行查询的时候可以通过Configuration传递需要读取的列的信息，这些列必须是Schema的子集，映射每次会扫描一个Row Group的数据，然后一次性得将该Row Group里所有需要的列的Cloumn Chunk都读取到内存中，每次读取一个Row Group的数据能够大大降低随机读的次数，除此之外，Parquet在读取的时候会考虑列是否连续，如果某些需要的列是存储位置是连续的，那么一次读操作就可以把多个列的数据读取到内存。</p>
+<h3 id="2-2谓词下推"><a href="#2-2谓词下推" class="headerlink" title="2.2谓词下推"></a>2.2谓词下推</h3><p>每个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。</p>
 
       
     </div>
@@ -607,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#列存储格式数据模型"><span class="nav-number">1.</span> <span class="nav-text">列存储格式数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-列式存储格式"><span class="nav-number">1.1.</span> <span class="nav-text">1. 列式存储格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Schema"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 Schema</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Definition-levels"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 Definition levels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Repetition-levels"><span class="nav-number">1.1.3.</span> <span class="nav-text">3 Repetition levels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-序列化"><span class="nav-number">1.1.4.</span> <span class="nav-text">4 序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-反序列化"><span class="nav-number">1.1.5.</span> <span class="nav-text">5 反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整数据举例"><span class="nav-number">1.1.6.</span> <span class="nav-text">完整数据举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Parquet文件结构"><span class="nav-number">1.2.</span> <span class="nav-text">2 Parquet文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#映射下推"><span class="nav-number">1.2.1.</span> <span class="nav-text">映射下推</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谓词下推"><span class="nav-number">1.2.2.</span> <span class="nav-text">谓词下推</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#列存储格式数据模型"><span class="nav-number">1.</span> <span class="nav-text">列存储格式数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-列式存储格式"><span class="nav-number">1.1.</span> <span class="nav-text">1. 列式存储格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Schema"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 Schema</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Definition-levels"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 Definition levels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Repetition-levels"><span class="nav-number">1.1.3.</span> <span class="nav-text">3 Repetition levels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-序列化"><span class="nav-number">1.1.4.</span> <span class="nav-text">4 序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-反序列化"><span class="nav-number">1.1.5.</span> <span class="nav-text">5 反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整数据举例"><span class="nav-number">1.1.6.</span> <span class="nav-text">完整数据举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Parquet文件结构"><span class="nav-number">1.2.</span> <span class="nav-text">2 Parquet文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1映射下推"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1映射下推</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2谓词下推"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2谓词下推</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
