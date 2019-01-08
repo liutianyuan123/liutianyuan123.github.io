@@ -634,7 +634,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-08 07:01:37" itemprop="dateModified" datetime="2019-01-08T07:01:37Z">2019-01-08</time>
+                <time title="Modified: 2019-01-08 07:35:16" itemprop="dateModified" datetime="2019-01-08T07:35:16Z">2019-01-08</time>
               
             
           </span>
@@ -674,7 +674,38 @@
 <h2 id="1-2-Definition-levels"><a href="#1-2-Definition-levels" class="headerlink" title="1.2 Definition levels"></a>1.2 Definition levels</h2><p>definition Level是该路径上有定义的repeated field 和 optional field的个数，不包括required field，因为required field是必须有定义的。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">message ExampleDefinitionLevel &#123;</span><br><span class="line">  optional group a &#123;</span><br><span class="line">    required group b &#123;</span><br><span class="line">      optional string c;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/definitionLevel.png" alt="Definition levels example"></p>
+<p>这里只保存definition level是2的。</p>
 <h2 id="1-3-Repetition-levels"><a href="#1-3-Repetition-levels" class="headerlink" title="1.3 Repetition levels"></a>1.3 Repetition levels</h2><p>Repetition level指明该值在路径中哪个repeated field重复。计算时忽略非重复字段。</p>
+<h2 id="1-4-序列化"><a href="#1-4-序列化" class="headerlink" title="1.4 序列化"></a>1.4 序列化</h2><p>比如一个数据的schema如下:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">message AddressBook &#123;</span><br><span class="line"> required string owner;</span><br><span class="line"> repeated string ownerPhoneNumbers;</span><br><span class="line"> repeated group contacts &#123;</span><br><span class="line">   required string name;</span><br><span class="line">   optional string phoneNumber;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以phoneNumber列为例，数据如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">AddressBook &#123;</span><br><span class="line"> contacts: &#123;</span><br><span class="line">   phoneNumber: "555 987 6543"</span><br><span class="line"> &#125;</span><br><span class="line"> contacts: &#123;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">AddressBook &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/序列化列式数据.png" alt="序列化列式数据"></p>
+<p>因此在磁盘上这么写：</p>
+<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/列式数据保存格式.png" alt="列式数据保存格式"></p>
+<h2 id="1-5-反序列化"><a href="#1-5-反序列化" class="headerlink" title="1.5 反序列化"></a>1.5 反序列化</h2><ol>
+<li><p>读取第一个三元组R=0, D=2, Value=”555 987 6543”</p>
+<ol>
+<li><p>R=0 表示是一个新的record，要根据schema创建一个新的nested record直到Definition Level=2。</p>
+</li>
+<li><p>D=2 说明Definition Level=Max Definition Level，那么这个Value就是contacts.phoneNumber这一列的值，赋值操作contacts.phoneNumber=”555 987 6543”。</p>
+</li>
+</ol>
+</li>
+<li><p>读取第二个三元组 R=1, D=1</p>
+<ol>
+<li><p>R=1 表示不是一个新的record，是上一个record中一个新的contacts。</p>
+</li>
+<li><p>D=1 表示contacts定义了，但是contacts的下一个级别也就是phoneNumber没有被定义，所以创建一个空的contacts。</p>
+</li>
+</ol>
+</li>
+<li><p>读取第三个三元组 R=0, D=0</p>
+<ol>
+<li>R=0 表示一个新的record，根据schema创建一个新的nested record直到Definition Level=0，也就是创建一个AddressBook根节点。</li>
+</ol>
+</li>
+</ol>
 
           
         
