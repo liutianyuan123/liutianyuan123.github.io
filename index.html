@@ -634,7 +634,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-08 07:57:57" itemprop="dateModified" datetime="2019-01-08T07:57:57Z">2019-01-08</time>
+                <time title="Modified: 2019-01-08 08:00:16" itemprop="dateModified" datetime="2019-01-08T08:00:16Z">2019-01-08</time>
               
             
           </span>
@@ -706,6 +706,8 @@
 </ol>
 </li>
 </ol>
+<h3 id="完整数据举例"><a href="#完整数据举例" class="headerlink" title="完整数据举例"></a>完整数据举例</h3><p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108155933parquet数据举例.png" alt="20190108155933parquet数据举例"></p>
+<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108160002举例结果.png" alt="结果"></p>
 <h2 id="2-Parquet文件结构"><a href="#2-Parquet文件结构" class="headerlink" title="2 Parquet文件结构"></a>2 Parquet文件结构</h2><p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108155339-parquet.png" alt="parquet文件结构"></p>
 <p>一个Parquet文件是由一个header以及一个或多个block块组成，以一个footer结尾。在Parquet文件中，每一个block都具有一组Row group,她们是由一组Column chunk组成的列数据。继续往下，每一个column chunk中又包含了它具有的pages。每个page就包含了来自于相同列的值.Parquet同时使用更紧凑形式的编码，当写入Parquet文件时，它会自动基于column的类型适配一个合适的编码，比如，一个boolean形式的值将会被用于run-length encoding。</p>
 <p>另一方面，Parquet文件对于每个page支持标准的压缩算法比如支持Snappy,gzip以及LZO压缩格式，也支持不压缩。</p>
