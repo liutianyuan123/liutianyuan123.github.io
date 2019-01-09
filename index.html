@@ -634,7 +634,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-08 08:01:54" itemprop="dateModified" datetime="2019-01-08T08:01:54Z">2019-01-08</time>
+                <time title="Modified: 2019-01-09 15:55:20" itemprop="dateModified" datetime="2019-01-09T15:55:20Z">2019-01-09</time>
               
             
           </span>
@@ -713,8 +713,8 @@
 <p>另一方面，Parquet文件对于每个page支持标准的压缩算法比如支持Snappy,gzip以及LZO压缩格式，也支持不压缩。</p>
 <p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/parquet.png" alt="parquet-page结构"></p>
 <p>在Parquet中，有三种类型的页：数据页、字典页和索引页。数据页用于存储当前行组中该列的值，字典页存储该列值的编码字典，每一个列块中最多包含一个字典页，索引页用来存储当前行组下该列的索引，目前Parquet中还不支持索引页，但是在后面的版本中增加。</p>
-<h3 id="2-1映射下推"><a href="#2-1映射下推" class="headerlink" title="2.1映射下推"></a>2.1映射下推</h3><p>说到列式存储的优势，映射下推是最突出的，它意味着在获取表中原始数据时只需要扫描查询中需要的列，由于每一列的所有值都是连续存储的，所以分区取出每一列的所有值就可以实现TableScan算子，而避免扫描整个表文件内容。<br>在Parquet中原生就支持映射下推，执行查询的时候可以通过Configuration传递需要读取的列的信息，这些列必须是Schema的子集，映射每次会扫描一个Row Group的数据，然后一次性得将该Row Group里所有需要的列的Cloumn Chunk都读取到内存中，每次读取一个Row Group的数据能够大大降低随机读的次数，除此之外，Parquet在读取的时候会考虑列是否连续，如果某些需要的列是存储位置是连续的，那么一次读操作就可以把多个列的数据读取到内存。</p>
-<h3 id="2-2谓词下推"><a href="#2-2谓词下推" class="headerlink" title="2.2谓词下推"></a>2.2谓词下推</h3><p>每个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。</p>
+<h3 id="2-1-映射下推"><a href="#2-1-映射下推" class="headerlink" title="2.1 映射下推"></a>2.1 映射下推</h3><p>说到列式存储的优势，映射下推是最突出的，它意味着在获取表中原始数据时只需要扫描查询中需要的列，由于每一列的所有值都是连续存储的，所以分区取出每一列的所有值就可以实现TableScan算子，而避免扫描整个表文件内容。<br>在Parquet中原生就支持映射下推，执行查询的时候可以通过Configuration传递需要读取的列的信息，这些列必须是Schema的子集，映射每次会扫描一个Row Group的数据，然后一次性得将该Row Group里所有需要的列的Cloumn Chunk都读取到内存中，每次读取一个Row Group的数据能够大大降低随机读的次数，除此之外，Parquet在读取的时候会考虑列是否连续，如果某些需要的列是存储位置是连续的，那么一次读操作就可以把多个列的数据读取到内存。</p>
+<h3 id="2-2-谓词下推"><a href="#2-2-谓词下推" class="headerlink" title="2.2 谓词下推"></a>2.2 谓词下推</h3><p>每个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。</p>
 
           
         
