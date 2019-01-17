@@ -96,20 +96,26 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="刘天源的博客">
-<meta property="og:url" content="https://liutianyuan123.github.io/index.html">
+  <meta name="description" content="vsCode插件 转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  1.菜单1.1 位置  资源管理器上下文菜单 - explorer/context 编辑器上下文菜单 - editor/context 编辑标题菜单栏 - editor/title 编辑器标题上下文菜单 - editor/title/context 调试callsta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vsCode插件">
+<meta property="og:url" content="https://liutianyuan123.github.io/2019/01/18/vsCode插件/index.html">
 <meta property="og:site_name" content="刘天源的博客">
+<meta property="og:description" content="vsCode插件 转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  1.菜单1.1 位置  资源管理器上下文菜单 - explorer/context 编辑器上下文菜单 - editor/context 编辑标题菜单栏 - editor/title 编辑器标题上下文菜单 - editor/title/context 调试callsta">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190117235553.png">
+<meta property="og:updated_time" content="2019-01-17T16:01:02.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘天源的博客">
+<meta name="twitter:title" content="vsCode插件">
+<meta name="twitter:description" content="vsCode插件 转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  1.菜单1.1 位置  资源管理器上下文菜单 - explorer/context 编辑器上下文菜单 - editor/context 编辑标题菜单栏 - editor/title 编辑器标题上下文菜单 - editor/title/context 调试callsta">
+<meta name="twitter:image" content="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190117235553.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://liutianyuan123.github.io/">
+  <link rel="canonical" href="https://liutianyuan123.github.io/2019/01/18/vsCode插件/">
 
 
 
@@ -119,7 +125,7 @@
   };
 </script>
 
-  <title>刘天源的博客</title>
+  <title>vsCode插件 | 刘天源的博客</title>
   
 
 
@@ -167,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -210,7 +215,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -272,9 +277,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -306,10 +311,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/18/vsCode插件/" class="post-title-link" itemprop="url">vsCode插件</a>
+          <h1 class="post-title" itemprop="name headline">vsCode插件
+
               
             
           </h1>
@@ -372,9 +375,7 @@
       
 
       
-        
-          
-            <h1 id="vsCode插件"><a href="#vsCode插件" class="headerlink" title="vsCode插件"></a>vsCode插件</h1><blockquote>
+        <h1 id="vsCode插件"><a href="#vsCode插件" class="headerlink" title="vsCode插件"></a>vsCode插件</h1><blockquote>
 <p>转载和整理自 <a href="http://blog.haoji.me/vscode-plugin-overview.html" target="_blank" rel="noopener">http://blog.haoji.me/vscode-plugin-overview.html</a></p>
 </blockquote>
 <h2 id="1-菜单"><a href="#1-菜单" class="headerlink" title="1.菜单"></a>1.菜单</h2><h3 id="1-1-位置"><a href="#1-1-位置" class="headerlink" title="1.1 位置"></a>1.1 位置</h3><hr>
@@ -443,8 +444,6 @@
 <h4 id="3-右上角显示图标和命令"><a href="#3-右上角显示图标和命令" class="headerlink" title="3 右上角显示图标和命令"></a>3 右上角显示图标和命令</h4><p>需要给命令设置icon</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">"commands": [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">            <span class="attr">"title"</span>: <span class="string">"显示名称"</span>,</span><br><span class="line">            <span class="attr">"icon"</span>:&#123;</span><br><span class="line">                <span class="attr">"light"</span>: <span class="string">"图标位置"</span>,</span><br><span class="line">                <span class="attr">"dark"</span>: <span class="string">"图标位置"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">"menus": &#123;</span><br><span class="line">    "editor/title": [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"navigation"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -467,211 +466,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liutianyuan123.github.io/2019/01/07/HIVE文本保存格式/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘天源的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/07/HIVE文本保存格式/" class="post-title-link" itemprop="url">列存储格式数据模型及Parquet文件结构</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/01/07/HIVE文本保存格式/" rel="next" title="列存储格式数据模型及Parquet文件结构">
+                <i class="fa fa-chevron-left"></i> 列存储格式数据模型及Parquet文件结构
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-07 15:17:01" itemprop="dateCreated datePublished" datetime="2019-01-07T15:17:01Z">2019-01-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-09 15:55:20" itemprop="dateModified" datetime="2019-01-09T15:55:20Z">2019-01-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="列存储格式数据模型"><a href="#列存储格式数据模型" class="headerlink" title="列存储格式数据模型"></a>列存储格式数据模型</h1><h2 id="1-列式存储格式"><a href="#1-列式存储格式" class="headerlink" title="1. 列式存储格式"></a>1. 列式存储格式</h2><h3 id="1-Schema"><a href="#1-Schema" class="headerlink" title="1 Schema"></a>1 Schema</h3><p>每个schema的结构是这样的：根叫做message，message包含多个fields。每个field包含三个属性：repetition, type, name。repetition可以是以下三种：required（出现1次），optional（出现0次或者1次），repeated（出现0次或者多次）。type可以是一个group或者一个primitive类型。group就是一个自定义结构体。</p>
-<p>那么列式是如何保存的呢？</p>
-<h3 id="2-Definition-levels"><a href="#2-Definition-levels" class="headerlink" title="2 Definition levels"></a>2 Definition levels</h3><p>definition Level是该路径上有定义的repeated field 和 optional field的个数，不包括required field，因为required field是必须有定义的。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">message ExampleDefinitionLevel &#123;</span><br><span class="line">  optional group a &#123;</span><br><span class="line">    required group b &#123;</span><br><span class="line">      optional string c;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/definitionLevel.png" alt="Definition levels example"></p>
-<p>这里只保存definition level是2的。</p>
-<h3 id="3-Repetition-levels"><a href="#3-Repetition-levels" class="headerlink" title="3 Repetition levels"></a>3 Repetition levels</h3><p>Repetition level指明该值在路径中哪个repeated field重复。计算时忽略非重复字段。</p>
-<h3 id="4-序列化"><a href="#4-序列化" class="headerlink" title="4 序列化"></a>4 序列化</h3><p>比如一个数据的schema如下:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">message AddressBook &#123;</span><br><span class="line"> required string owner;</span><br><span class="line"> repeated string ownerPhoneNumbers;</span><br><span class="line"> repeated group contacts &#123;</span><br><span class="line">   required string name;</span><br><span class="line">   optional string phoneNumber;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以phoneNumber列为例，数据如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">AddressBook &#123;</span><br><span class="line"> contacts: &#123;</span><br><span class="line">   phoneNumber: "555 987 6543"</span><br><span class="line"> &#125;</span><br><span class="line"> contacts: &#123;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">AddressBook &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/序列化列式数据.png" alt="序列化列式数据"></p>
-<p>因此在磁盘上这么写：</p>
-<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/列式数据保存格式.png" alt="列式数据保存格式"></p>
-<h3 id="5-反序列化"><a href="#5-反序列化" class="headerlink" title="5 反序列化"></a>5 反序列化</h3><ol>
-<li><p>读取第一个三元组R=0, D=2, Value=”555 987 6543”</p>
-<ol>
-<li><p>R=0 表示是一个新的record，要根据schema创建一个新的nested record直到Definition Level=2。</p>
-</li>
-<li><p>D=2 说明Definition Level=Max Definition Level，那么这个Value就是contacts.phoneNumber这一列的值，赋值操作contacts.phoneNumber=”555 987 6543”。</p>
-</li>
-</ol>
-</li>
-<li><p>读取第二个三元组 R=1, D=1</p>
-<ol>
-<li><p>R=1 表示不是一个新的record，是上一个record中一个新的contacts。</p>
-</li>
-<li><p>D=1 表示contacts定义了，但是contacts的下一个级别也就是phoneNumber没有被定义，所以创建一个空的contacts。</p>
-</li>
-</ol>
-</li>
-<li><p>读取第三个三元组 R=0, D=0</p>
-<ol>
-<li>R=0 表示一个新的record，根据schema创建一个新的nested record直到Definition Level=0，也就是创建一个AddressBook根节点。</li>
-</ol>
-</li>
-</ol>
-<h3 id="完整数据举例"><a href="#完整数据举例" class="headerlink" title="完整数据举例"></a>完整数据举例</h3><p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108155933parquet数据举例.png" alt="20190108155933parquet数据举例"></p>
-<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108160002举例结果.png" alt="结果"></p>
-<h2 id="2-Parquet文件结构"><a href="#2-Parquet文件结构" class="headerlink" title="2 Parquet文件结构"></a>2 Parquet文件结构</h2><p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190108155339-parquet.png" alt="parquet文件结构"></p>
-<p>一个Parquet文件是由一个header以及一个或多个block块组成，以一个footer结尾。在Parquet文件中，每一个block都具有一组Row group,她们是由一组Column chunk组成的列数据。继续往下，每一个column chunk中又包含了它具有的pages。每个page就包含了来自于相同列的值.Parquet同时使用更紧凑形式的编码，当写入Parquet文件时，它会自动基于column的类型适配一个合适的编码，比如，一个boolean形式的值将会被用于run-length encoding。</p>
-<p>另一方面，Parquet文件对于每个page支持标准的压缩算法比如支持Snappy,gzip以及LZO压缩格式，也支持不压缩。</p>
-<p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/parquet.png" alt="parquet-page结构"></p>
-<p>在Parquet中，有三种类型的页：数据页、字典页和索引页。数据页用于存储当前行组中该列的值，字典页存储该列值的编码字典，每一个列块中最多包含一个字典页，索引页用来存储当前行组下该列的索引，目前Parquet中还不支持索引页，但是在后面的版本中增加。</p>
-<h3 id="2-1-映射下推"><a href="#2-1-映射下推" class="headerlink" title="2.1 映射下推"></a>2.1 映射下推</h3><p>说到列式存储的优势，映射下推是最突出的，它意味着在获取表中原始数据时只需要扫描查询中需要的列，由于每一列的所有值都是连续存储的，所以分区取出每一列的所有值就可以实现TableScan算子，而避免扫描整个表文件内容。<br>在Parquet中原生就支持映射下推，执行查询的时候可以通过Configuration传递需要读取的列的信息，这些列必须是Schema的子集，映射每次会扫描一个Row Group的数据，然后一次性得将该Row Group里所有需要的列的Cloumn Chunk都读取到内存中，每次读取一个Row Group的数据能够大大降低随机读的次数，除此之外，Parquet在读取的时候会考虑列是否连续，如果某些需要的列是存储位置是连续的，那么一次读操作就可以把多个列的数据读取到内存。</p>
-<h3 id="2-2-谓词下推"><a href="#2-2-谓词下推" class="headerlink" title="2.2 谓词下推"></a>2.2 谓词下推</h3><p>每个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -681,14 +497,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -709,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -767,6 +593,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vsCode插件"><span class="nav-number">1.</span> <span class="nav-text">vsCode插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-菜单"><span class="nav-number">1.1.</span> <span class="nav-text">1.菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-位置"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-when"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 when</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-alt"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 alt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-group"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 group</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#editor-context中有这些默认组："><span class="nav-number">1.1.4.1.</span> <span class="nav-text">editor/context中有这些默认组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#explorer-context有这些默认组："><span class="nav-number">1.1.4.2.</span> <span class="nav-text">explorer/context有这些默认组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在编辑器选项卡上下文菜单有这些默认组："><span class="nav-number">1.1.4.3.</span> <span class="nav-text">在编辑器选项卡上下文菜单有这些默认组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在editor-title有这些默认组："><span class="nav-number">1.1.4.4.</span> <span class="nav-text">在editor/title有这些默认组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组内排序："><span class="nav-number">1.1.4.5.</span> <span class="nav-text">组内排序：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的下面介绍"><span class="nav-number">1.1.5.</span> <span class="nav-text">常用的下面介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Explorer中右键文件显示命令"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">1 Explorer中右键文件显示命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-编辑区中右键文件显示命令"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">2 编辑区中右键文件显示命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-右上角显示图标和命令"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">3 右上角显示图标和命令</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -897,6 +740,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -906,6 +753,8 @@
 
 
   
+  
+
 
 
 
