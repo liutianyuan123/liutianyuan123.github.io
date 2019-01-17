@@ -334,7 +334,7 @@
                 
               
 
-              <time title="Created: 2019-01-17 23:21:16 / Modified: 16:07:22" itemprop="dateCreated datePublished" datetime="2019-01-17T23:21:16Z">2019-01-17</time>
+              <time title="Created: 2019-01-17 23:21:16 / Modified: 16:12:49" itemprop="dateCreated datePublished" datetime="2019-01-17T23:21:16Z">2019-01-17</time>
             
 
             
@@ -377,7 +377,7 @@
             <blockquote>
 <p>转载和整理自 <a href="http://blog.haoji.me/vscode-plugin-overview.html" target="_blank" rel="noopener">http://blog.haoji.me/vscode-plugin-overview.html</a></p>
 </blockquote>
-<h1 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h1><h2 id="1-1-位置"><a href="#1-1-位置" class="headerlink" title="1.1 位置"></a>1.1 位置</h2><ul>
+<h1 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h1><h2 id="1-位置"><a href="#1-位置" class="headerlink" title="1 位置"></a>1 位置</h2><ul>
 <li>资源管理器上下文菜单 - explorer/context</li>
 <li>编辑器上下文菜单 - editor/context</li>
 <li>编辑标题菜单栏 - editor/title</li>
@@ -391,7 +391,7 @@
 <li>视图项菜单 -view/item/context</li>
 <li>控制命令是否显示在命令选项板中 - commandPalette</li>
 </ul>
-<h2 id="1-2-when"><a href="#1-2-when" class="headerlink" title="1.2 when"></a>1.2 when</h2><p>常用如下：</p>
+<h2 id="2-when"><a href="#2-when" class="headerlink" title="2 when"></a>2 when</h2><p>常用如下：</p>
 <ul>
 <li>resourceLangId == javascript：当编辑的文件是js文件时；</li>
 <li>resourceFilename == test.js：当当前打开文件名是test.js时；</li>
@@ -403,8 +403,8 @@
 </ul>
 <p>组合写法:editorFocus &amp;&amp; isWindows &amp;&amp; resourceLangId == javascript</p>
 <p>注意:resourceLangId是根据文件后缀名确定的，若新建文件但未保存，这个是不起作用的</p>
-<h2 id="1-3-alt"><a href="#1-3-alt" class="headerlink" title="1.3 alt"></a>1.3 alt</h2><p>alt很好理解，表示没有按下alt键时，点击右键菜单执行的是command对应的命令，而按下了alt键后执行的是alt对应的命令。这里不做过多解释。</p>
-<h2 id="1-4-group"><a href="#1-4-group" class="headerlink" title="1.4 group"></a>1.4 group</h2><h3 id="editor-context中有这些默认组："><a href="#editor-context中有这些默认组：" class="headerlink" title="editor/context中有这些默认组："></a>editor/context中有这些默认组：</h3><ul>
+<h2 id="3-alt"><a href="#3-alt" class="headerlink" title="3 alt"></a>3 alt</h2><p>alt很好理解，表示没有按下alt键时，点击右键菜单执行的是command对应的命令，而按下了alt键后执行的是alt对应的命令。这里不做过多解释。</p>
+<h2 id="4-group"><a href="#4-group" class="headerlink" title="4 group"></a>4 group</h2><h3 id="4-1-editor-context中有这些默认组："><a href="#4-1-editor-context中有这些默认组：" class="headerlink" title="4.1 editor/context中有这些默认组："></a>4.1 editor/context中有这些默认组：</h3><ul>
 <li>navigation- 放在这个组的永远排在最前面；</li>
 <li>1_modification - 更改组；</li>
 <li>9_cutcopypaste - 编辑组</li>
@@ -413,8 +413,7 @@
 <p>如图所示:</p>
 <p><img src="https://blog-1255797650.cos.ap-beijing.myqcloud.com/20190117235553.png" alt="editor/context的Group.png"></p>
 <p>除了navigation是强制放在最前面之外，其它分组都是按照0-9、a-z的顺序排列的，所以如果你想在1_modification和9_cutcopypaste插入一个新的组别的话，你可以定义一个诸如6_test：</p>
-<p>####explorer/context有这些默认组：</p>
-<ul>
+<h3 id="4-2-explorer-context有这些默认组："><a href="#4-2-explorer-context有这些默认组：" class="headerlink" title="4.2 explorer/context有这些默认组："></a>4.2 explorer/context有这些默认组：</h3><ul>
 <li>navigation - 放在这个组的永远排在最前面；</li>
 <li>2_workspace - 与工作空间操作相关的命令。</li>
 <li>3_compare - 与差异编辑器中的文件比较相关的命令。</li>
@@ -422,21 +421,21 @@
 <li>5_cutcopypaste - 与剪切，复制和粘贴文件相关的命令。</li>
 <li>7_modification - 与修改文件相关的命令。</li>
 </ul>
-<h3 id="在编辑器选项卡上下文菜单有这些默认组："><a href="#在编辑器选项卡上下文菜单有这些默认组：" class="headerlink" title="在编辑器选项卡上下文菜单有这些默认组："></a>在编辑器选项卡上下文菜单有这些默认组：</h3><ul>
+<h3 id="4-3-在编辑器选项卡上下文菜单有这些默认组："><a href="#4-3-在编辑器选项卡上下文菜单有这些默认组：" class="headerlink" title="4.3 在编辑器选项卡上下文菜单有这些默认组："></a>4.3 在编辑器选项卡上下文菜单有这些默认组：</h3><ul>
 <li>1_close - 与关闭编辑器相关的命令。</li>
 <li>3_preview - 与固定编辑器相关的命令。</li>
 </ul>
-<h3 id="在editor-title有这些默认组："><a href="#在editor-title有这些默认组：" class="headerlink" title="在editor/title有这些默认组："></a>在editor/title有这些默认组：</h3><ul>
+<h3 id="4-4-在editor-title有这些默认组："><a href="#4-4-在editor-title有这些默认组：" class="headerlink" title="4.4 在editor/title有这些默认组："></a>4.4 在editor/title有这些默认组：</h3><ul>
 <li>1_diff - 与使用差异编辑器相关的命令。</li>
 <li>3_open - 与打开编辑器相关的命令。</li>
 <li>5_close - 与关闭编辑器相关的命令。</li>
 </ul>
-<h3 id="组内排序："><a href="#组内排序：" class="headerlink" title="组内排序："></a>组内排序：</h3><p>默认同一个组的顺序取决于菜单名称，如果想自定义排序的话可以再组后面通过@\&lt;number>的方式来自定义顺序</p>
+<h3 id="4-5-组内排序："><a href="#4-5-组内排序：" class="headerlink" title="4.5 组内排序："></a>4.5 组内排序：</h3><p>默认同一个组的顺序取决于菜单名称，如果想自定义排序的话可以再组后面通过@\&lt;number>的方式来自定义顺序</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">"editor/context": [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"when"</span>: <span class="string">"editorFocus"</span>,</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"extension.sayHello"</span>,</span><br><span class="line">        // 强制放在navigation组的第2个</span><br><span class="line">        "group": "navigation@2"</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"when"</span>: <span class="string">"editorFocus"</span>,</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"extension.demo.getCurrentFilePath"</span>,</span><br><span class="line">        // 强制放在navigation组的第1个</span><br><span class="line">        "group": "navigation@1"</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="1-5-常用的下面介绍"><a href="#1-5-常用的下面介绍" class="headerlink" title="1.5 常用的下面介绍"></a>1.5 常用的下面介绍</h2><h3 id="1-Explorer中右键文件显示命令"><a href="#1-Explorer中右键文件显示命令" class="headerlink" title="1 Explorer中右键文件显示命令"></a>1 Explorer中右键文件显示命令</h3><p>package.json中设置如下：</p>
+<h2 id="5-常用的下面介绍"><a href="#5-常用的下面介绍" class="headerlink" title="5 常用的下面介绍"></a>5 常用的下面介绍</h2><h3 id="5-1-Explorer中右键文件显示命令"><a href="#5-1-Explorer中右键文件显示命令" class="headerlink" title="5.1 Explorer中右键文件显示命令"></a>5.1 Explorer中右键文件显示命令</h3><p>package.json中设置如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"menus": &#123;</span><br><span class="line">    "explorer/context": [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"navigation"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-编辑区中右键文件显示命令"><a href="#2-编辑区中右键文件显示命令" class="headerlink" title="2 编辑区中右键文件显示命令"></a>2 编辑区中右键文件显示命令</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"menus": &#123;</span><br><span class="line">    "editor/context": [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"navigation"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-右上角显示图标和命令"><a href="#3-右上角显示图标和命令" class="headerlink" title="3 右上角显示图标和命令"></a>3 右上角显示图标和命令</h3><p>需要给命令设置icon</p>
+<h3 id="5-2-编辑区中右键文件显示命令"><a href="#5-2-编辑区中右键文件显示命令" class="headerlink" title="5.2 编辑区中右键文件显示命令"></a>5.2 编辑区中右键文件显示命令</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"menus": &#123;</span><br><span class="line">    "editor/context": [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"navigation"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-右上角显示图标和命令"><a href="#5-3-右上角显示图标和命令" class="headerlink" title="5.3 右上角显示图标和命令"></a>5.3 右上角显示图标和命令</h3><p>需要给命令设置icon</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">"commands": [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">            <span class="attr">"title"</span>: <span class="string">"显示名称"</span>,</span><br><span class="line">            <span class="attr">"icon"</span>:&#123;</span><br><span class="line">                <span class="attr">"light"</span>: <span class="string">"图标位置"</span>,</span><br><span class="line">                <span class="attr">"dark"</span>: <span class="string">"图标位置"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">"menus": &#123;</span><br><span class="line">    "editor/title": [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"命令"</span>,</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"navigation"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
