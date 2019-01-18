@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[]) （globPattern）教程 Thenable类型可使用then(f1,f2">
+  <meta name="description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[])">
 <meta name="keywords" content="vscode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vsCode插件系列(2)--文件">
 <meta property="og:url" content="https://liutianyuan123.github.io/2019/01/20/vsCode插件文件2/index.html">
 <meta property="og:site_name" content="刘天源的博客">
-<meta property="og:description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[]) （globPattern）教程 Thenable类型可使用then(f1,f2">
+<meta property="og:description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[])">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-18T17:03:45.055Z">
+<meta property="og:updated_time" content="2019-01-18T17:05:00.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vsCode插件系列(2)--文件">
-<meta name="twitter:description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[]) （globPattern）教程 Thenable类型可使用then(f1,f2">
+<meta name="twitter:description" content="转载和整理自 http://blog.haoji.me/vscode-plugin-overview.html  文件1 寻找文件（在workspace下）第一个参数：要寻找的文件（globPattern）第二个参数：要排除的文件（globPattern）第三个参数：最大返回个数。返回：Thenable(URI[])">
 
 
 
@@ -376,7 +376,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-18 17:03:45" itemprop="dateModified" datetime="2019-01-18T17:03:45Z">2019-01-18</time>
+                <time title="Modified: 2019-01-18 17:05:00" itemprop="dateModified" datetime="2019-01-18T17:05:00Z">2019-01-18</time>
               
             
           </span>
@@ -424,6 +424,7 @@
 <p>转载和整理自 <a href="http://blog.haoji.me/vscode-plugin-overview.html" target="_blank" rel="noopener">http://blog.haoji.me/vscode-plugin-overview.html</a></p>
 </blockquote>
 <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><h2 id="1-寻找文件（在workspace下）"><a href="#1-寻找文件（在workspace下）" class="headerlink" title="1 寻找文件（在workspace下）"></a>1 寻找文件（在workspace下）</h2><p>第一个参数：要寻找的文件（globPattern）<br>第二个参数：要排除的文件（globPattern）<br>第三个参数：最大返回个数。<br>返回：Thenable(URI[])</p>
+<a id="more"></a>
 <p>（<a href="https://blog.csdn.net/whuzm08/article/details/72869683" target="_blank" rel="noopener">globPattern</a>）教程</p>
 <p>Thenable类型可使用then(f1,f2)方法，f1表示workspace打开了，success为URI[]数组，f2表示workspace没打开。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findURI</span>(<span class="params">fileName</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=vscode.workspace.findFiles(<span class="string">'**/'</span>+fileName+<span class="string">'.hql'</span>,<span class="literal">null</span>,<span class="number">2</span>)</span><br><span class="line">		a.then(<span class="function"><span class="keyword">function</span>(<span class="params">success</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(success)</span><br><span class="line">		&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">failed</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"work space没打开"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
