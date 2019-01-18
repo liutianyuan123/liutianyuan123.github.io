@@ -1,5 +1,27 @@
-extends includes/layout.pug
-
-block content
-  include includes/recent-posts.pug
-  include includes/pagination.pug
+<!DOCTYPE html><html lang="default"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="John Doe,undefined"><meta name="copyright" content="John Doe"><title>BI-数仓 | 刘天源的博客</title><link rel="shortcut icon" href="/my-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">John Doe</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">2</span></a></div></div></div><nav class="no-bg" id="nav" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">刘天源的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">刘天源的博客</div><div id="site-sub-title">BI-数仓</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2019/01/18/vsCode插件/">vsCode插件系列(1)--菜单</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-01-17</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/vscode/">vscode</a></span><div class="content"><blockquote>
+<p>转载和整理自 <a href="http://blog.haoji.me/vscode-plugin-overview.html" target="_blank" rel="noopener">http://blog.haoji.me/vscode-plugin-overview.html</a></p>
+</blockquote>
+<h1 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h1><h2 id="1-位置"><a href="#1-位置" class="headerlink" title="1 位置"></a>1 位置</h2><ul>
+<li>资源管理器上下文菜单 - explorer/context</li>
+<li>编辑器上下文菜单 - editor/context</li>
+<li>编辑标题菜单栏 - editor/title</li>
+<li>编辑器标题上下文菜单 - editor/title/context</li>
+<li>调试callstack视图上下文菜单 - debug/callstack/context</li>
+<li>SCM标题菜单 -scm/title</li>
+<li>SCM资源组菜单 -scm/resourceGroup/context</li>
+<li>SCM资源菜单 -scm/resource/context</li>
+<li>SCM更改标题菜单 -scm/change/title</li>
+<li>左侧视图标题菜单 -view/title</li>
+<li>视图项菜单 -view/item/context</li>
+<li>控制命令是否显示在命令选项板中 - commandPalette</li>
+</ul></div><a class="more" href="/2019/01/18/vsCode插件/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/01/07/HIVE文本保存格式/">列存储格式数据模型及Parquet文件结构</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-01-07</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/HIVE/">HIVE</a></span><div class="content"><h1 id="列存储格式数据模型"><a href="#列存储格式数据模型" class="headerlink" title="列存储格式数据模型"></a>列存储格式数据模型</h1><h2 id="1-列式存储格式"><a href="#1-列式存储格式" class="headerlink" title="1. 列式存储格式"></a>1. 列式存储格式</h2><h3 id="1-Schema"><a href="#1-Schema" class="headerlink" title="1 Schema"></a>1 Schema</h3><p>每个schema的结构是这样的：根叫做message，message包含多个fields。每个field包含三个属性：repetition, type, name。repetition可以是以下三种：required（出现1次），optional（出现0次或者1次），repeated（出现0次或者多次）。type可以是一个group或者一个primitive类型。group就是一个自定义结构体。</p>
+<p>那么列式是如何保存的呢？</p></div><a class="more" href="/2019/01/07/HIVE文本保存格式/#more">Read more</a><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2019 By John Doe</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script></body></html>
