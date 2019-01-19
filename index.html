@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2019-01-19 23:22:08 / Modified: 17:19:02" itemprop="dateCreated datePublished" datetime="2019-01-19T23:22:08Z">2019-01-19</time>
+              <time title="Created: 2019-01-19 23:22:08 / Modified: 17:23:46" itemprop="dateCreated datePublished" datetime="2019-01-19T23:22:08Z">2019-01-19</time>
             
 
             
@@ -407,25 +407,22 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>转载和整理自 <a href="http://blog.haoji.me/vscode-plugin-overview.html" target="_blank" rel="noopener">http://blog.haoji.me/vscode-plugin-overview.html</a></p>
 </blockquote>
-<h1 id="1跳转到定义"><a href="#1跳转到定义" class="headerlink" title="1跳转到定义"></a>1跳转到定义</h1><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">provideDefinition</span>(<span class="params"><span class="built_in">document</span>, position, token</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> fileName	= <span class="built_in">document</span>.fileName;</span><br><span class="line">	<span class="keyword">const</span> word		= <span class="built_in">document</span>.getText(<span class="built_in">document</span>.getWordRangeAtPosition(position));</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'====== 进入 provideDefinition 方法 ======'</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'fileName: '</span> + fileName); <span class="comment">// 当前文件完整路径</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'word: '</span> + word); <span class="comment">// 当前光标所在单词</span></span><br><span class="line">    <span class="comment">// fileName=搜索该获取目标目录名(word)</span></span><br><span class="line">	<span class="keyword">return</span>  <span class="keyword">new</span> vscode.Location(vscode.Uri.file(fileName), <span class="keyword">new</span> vscode.Position(<span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activate</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 对hql生效</span></span><br><span class="line">	<span class="keyword">let</span> tiaozhuan=vscode.languages.registerDefinitionProvider([<span class="string">'hive-sql'</span>],&#123;provideDefinition&#125;);</span><br><span class="line">	context.subscriptions.push(tiaozhuan);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2自动补全"><a href="#2自动补全" class="headerlink" title="2自动补全"></a>2自动补全</h1><p>通过<code>vscode.languages.registerCompletionItemProvider</code>方法注册自动完成实现，接收3个参数：</p>
-<ul>
-<li>第一个是要关联的文件类型；</li>
-<li>第二个是一个对象，里面必须包含<code>provideCompletionItems</code>和<code>resolveCompletionItem</code>这2个方法；</li>
-<li>第三个是一个可选的触发提示的字符列表；</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activate</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> tiaozhuan=vscode.languages.registerCompletionItemProvider(<span class="string">'hive-sql'</span>,&#123;</span><br><span class="line">		provideCompletionItems,</span><br><span class="line">		resolveCompletionItem <span class="comment">////光标选中当前自动补全item时触发动作，一般情况下无需处理</span></span><br><span class="line">	&#125;,<span class="string">""</span>)</span><br><span class="line">	context.subscriptions.push(tiaozhuan);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveCompletionItem</span>(<span class="params">item, token</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//需要返回一个列表.</span></span><br><span class="line"><span class="comment">//vscode.CompletionItemKind.Field表示类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">provideCompletionItems</span>(<span class="params"><span class="built_in">document</span>, position, token, context</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> [<span class="keyword">new</span> vscode.CompletionItem(<span class="string">"ssss"</span>,vscode.CompletionItemKind.Field)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- TODO:补充解释vscode.CompletionItemKind.Field所有类型及其样式 -->
-<h1 id="3悬停提示"><a href="#3悬停提示" class="headerlink" title="3悬停提示"></a>3悬停提示</h1><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">provideHover</span>(<span class="params"><span class="built_in">document</span>, position, token</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> vscode.Hover(<span class="string">`* **名称**：haha\n* **版本**：1\n* **许可协议**：2`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;vscode.ExtensionContext&#125; context</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activate</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> tiaozhuan=vscode.languages.registerHoverProvider(<span class="string">'hive-sql'</span>, &#123;</span><br><span class="line">		provideHover</span><br><span class="line">	&#125;)</span><br><span class="line">	context.subscriptions.push(tiaozhuan);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>介绍了跳转，自动补全，悬停显示和代码片段的使用<br>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/20/vsCode插件跳转补全悬停3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
