@@ -241,7 +241,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">4</span></a>
 
   </li>
         
@@ -260,7 +260,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">4</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">6</span></a>
 
   </li>
 
@@ -296,6 +296,336 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liutianyuan123.github.io/2019/02/22/经验教训/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘天源">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘天源的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/22/经验教训/" class="post-title-link" itemprop="url">hive-经验教训</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-21 23:24:25 / Modified: 15:29:52" itemprop="dateCreated datePublished" datetime="2019-02-21T23:24:25Z">2019-02-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+            <span id="/2019/02/22/经验教训/" class="leancloud_visitors" data-flag-title="hive-经验教训">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="自救指南"><a href="#自救指南" class="headerlink" title="自救指南"></a>自救指南</h1><blockquote>
+<p>遇到问题不要慌，不要随意改变原有的逻辑</p>
+</blockquote>
+<h2 id="1-误删线上表"><a href="#1-误删线上表" class="headerlink" title="1.误删线上表"></a>1.误删线上表</h2><ol>
+<li>检查hdfs上数据是否有删除</li>
+<li>若没有删除，使用<code>mack repair table table name</code>,这个命令会把hdfs上的数据加载到hive的metastore中。</li>
+<li>若删除了（一般不会删除，除非建表的时候使用了external,这样会删除hdfs上的文件！），从垃圾回收站回滚。</li>
+<li>hadoop删除后的路径是<code>/user/$user/.Trash/Current/$path</code>或<code>/user/$user/.Trash/$timestamp/$path</code>，其中<code>$path</code>是原始路径，找到后通过<code>hadoop fs -mv $src $dest</code>移动回去即可.</li>
+<li>然后再执行第2步的命令。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liutianyuan123.github.io/2019/02/18/机器学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘天源">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘天源的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/18/机器学习/" class="post-title-link" itemprop="url">高等数学</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-18 13:46:51" itemprop="dateCreated datePublished" datetime="2019-02-18T13:46:51Z">2019-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-21 15:23:51" itemprop="dateModified" datetime="2019-02-21T15:23:51Z">2019-02-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+            <span id="/2019/02/18/机器学习/" class="leancloud_visitors" data-flag-title="高等数学">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="高等数学"><a href="#高等数学" class="headerlink" title="高等数学"></a>高等数学</h1><h2 id="2个重要的极限定理"><a href="#2个重要的极限定理" class="headerlink" title="2个重要的极限定理"></a>2个重要的极限定理</h2><ul>
+<li>$${\lim_{x \to +\infty}} (1+1/n)^n =e $$</li>
+<li>$${\lim_{x \to 0}} \sin x/x =1 $$</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1047,7 +1377,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1066,7 +1396,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
