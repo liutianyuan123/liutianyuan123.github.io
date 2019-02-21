@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑  1.误删线上表 检查hdfs上数据是否有删除 若没有删除，使用mack repair table table name,这个命令会把hdfs上的数据加载到hive的metastore中。 若删除了（一般不会删除，除非建表的时候使用了external,这样会删除hdfs上的文件！），从垃圾回收站回滚。 hadoop删除后的路径是/user/$use">
+  <meta name="description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑">
 <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hive-经验教训">
 <meta property="og:url" content="https://liutianyuan123.github.io/2019/02/22/经验教训/index.html">
 <meta property="og:site_name" content="刘天源的博客">
-<meta property="og:description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑  1.误删线上表 检查hdfs上数据是否有删除 若没有删除，使用mack repair table table name,这个命令会把hdfs上的数据加载到hive的metastore中。 若删除了（一般不会删除，除非建表的时候使用了external,这样会删除hdfs上的文件！），从垃圾回收站回滚。 hadoop删除后的路径是/user/$use">
+<meta property="og:description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-21T15:29:52.116Z">
+<meta property="og:updated_time" content="2019-02-21T15:31:27.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive-经验教训">
-<meta name="twitter:description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑  1.误删线上表 检查hdfs上数据是否有删除 若没有删除，使用mack repair table table name,这个命令会把hdfs上的数据加载到hive的metastore中。 若删除了（一般不会删除，除非建表的时候使用了external,这样会删除hdfs上的文件！），从垃圾回收站回滚。 hadoop删除后的路径是/user/$use">
+<meta name="twitter:description" content="自救指南 遇到问题不要慌，不要随意改变原有的逻辑">
 
 
 
@@ -359,7 +359,7 @@
                 
               
 
-              <time title="Created: 2019-02-21 23:24:25 / Modified: 15:29:52" itemprop="dateCreated datePublished" datetime="2019-02-21T23:24:25Z">2019-02-21</time>
+              <time title="Created: 2019-02-21 23:24:25 / Modified: 15:31:27" itemprop="dateCreated datePublished" datetime="2019-02-21T23:24:25Z">2019-02-21</time>
             
 
             
@@ -411,6 +411,7 @@
         <h1 id="自救指南"><a href="#自救指南" class="headerlink" title="自救指南"></a>自救指南</h1><blockquote>
 <p>遇到问题不要慌，不要随意改变原有的逻辑</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="1-误删线上表"><a href="#1-误删线上表" class="headerlink" title="1.误删线上表"></a>1.误删线上表</h2><ol>
 <li>检查hdfs上数据是否有删除</li>
 <li>若没有删除，使用<code>mack repair table table name</code>,这个命令会把hdfs上的数据加载到hive的metastore中。</li>

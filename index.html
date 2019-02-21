@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2019-02-21 23:24:25 / Modified: 15:29:52" itemprop="dateCreated datePublished" datetime="2019-02-21T23:24:25Z">2019-02-21</time>
+              <time title="Created: 2019-02-21 23:24:25 / Modified: 15:31:27" itemprop="dateCreated datePublished" datetime="2019-02-21T23:24:25Z">2019-02-21</time>
             
 
             
@@ -407,19 +407,18 @@
 
       
         
-          
-            <h1 id="自救指南"><a href="#自救指南" class="headerlink" title="自救指南"></a>自救指南</h1><blockquote>
+          <h1 id="自救指南"><a href="#自救指南" class="headerlink" title="自救指南"></a>自救指南</h1><blockquote>
 <p>遇到问题不要慌，不要随意改变原有的逻辑</p>
 </blockquote>
-<h2 id="1-误删线上表"><a href="#1-误删线上表" class="headerlink" title="1.误删线上表"></a>1.误删线上表</h2><ol>
-<li>检查hdfs上数据是否有删除</li>
-<li>若没有删除，使用<code>mack repair table table name</code>,这个命令会把hdfs上的数据加载到hive的metastore中。</li>
-<li>若删除了（一般不会删除，除非建表的时候使用了external,这样会删除hdfs上的文件！），从垃圾回收站回滚。</li>
-<li>hadoop删除后的路径是<code>/user/$user/.Trash/Current/$path</code>或<code>/user/$user/.Trash/$timestamp/$path</code>，其中<code>$path</code>是原始路径，找到后通过<code>hadoop fs -mv $src $dest</code>移动回去即可.</li>
-<li>然后再执行第2步的命令。</li>
-</ol>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/22/经验教训/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
